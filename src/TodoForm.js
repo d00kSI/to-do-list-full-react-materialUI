@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TextField, Button } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,12 +20,15 @@ const TodoForm = ({ addTodo }) => {
 
     return (
         <form onSubmit={handleSubmit}>                                                      {/* Attach the handleSubmit function to the form's onSubmit event */}
-            <input 
-                type="text" 
-                className="todo-input" 
-                placeholder="Task description" 
+            <TextField
+                type="text"
+                className="todo-input"
+                placeholder="Task description"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}                                  // Update state on input change
+                onChange={(e) => setInput(e.target.value)} // Update state on input change
+                variant="outlined" // Material UI variant
+                fullWidth // Make the input take full width
+                margin="normal" // Add margin for spacing
             />
             <button className="todo-button" type="submit">                                  {/* Button to submit the form */}
                 <FontAwesomeIcon icon={faSquarePlus} />
